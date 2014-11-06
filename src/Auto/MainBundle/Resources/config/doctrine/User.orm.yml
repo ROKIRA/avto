@@ -1,0 +1,7 @@
+Auto\MainBundle\Entity\User:
+    type: entity
+    table: user
+    fields:
+        password2:
+          type: string
+          length: 255

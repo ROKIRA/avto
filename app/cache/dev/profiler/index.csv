@@ -1,0 +1,6 @@
+f9edbf,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DAutoMainBundle%253AAuth%253Aindex,1415309841,5d613c
+5d613c,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/,1415309841,
+2104e4,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DAutoMainBundle%253AAuth%253Aindex,1415309845,7fd77c
+7fd77c,127.0.0.1,POST,http://localhost/Symfony/web/app_dev.php/,1415309845,
+43fa26,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DAutoMainBundle%253AAuth%253Aindex,1415309846,445f57
+445f57,127.0.0.1,POST,http://localhost/Symfony/web/app_dev.php/,1415309846,

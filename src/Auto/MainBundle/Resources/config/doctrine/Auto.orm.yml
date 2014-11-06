@@ -1,0 +1,42 @@
+Auto\MainBundle\Entity\Auto:
+    type: entity
+    table: auto
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        region:
+            type: string
+            length: 255
+        mark:
+            type: string
+            length: 255
+        model:
+            type: string
+            length: 255
+        year:
+            type: integer
+            length: 4
+        body:
+            type: string
+            length: 255
+        color:
+            type: string
+            length: 255
+        run:
+            type: integer
+            length: 10
+        new:
+            type: boolean
+        vip:
+            type: boolean
+        img:
+            type: string
+            length: 255
+            nullable: true
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text

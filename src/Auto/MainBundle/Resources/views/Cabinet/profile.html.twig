@@ -1,0 +1,100 @@
+{% extends "::base.html.twig" %}
+
+    {% block leftbar %}
+        {% include 'AutoMainBundle:Cabinet:cabmenu.html.twig' %}
+    {% endblock %}
+
+    {% block content %}
+        <div class="content">
+
+            <h2 class="page_title">Редактирование профиля</h2>
+
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            <form action="{{ path('change_profile') }}" method="post" {{ form_enctype(form) }} class="add_form">
+                <fieldset>
+                    <legend>Измените необходимые поля</legend>
+
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="error">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="reg">
+                        <div class="field">
+                            {% if(form_errors(form.email)) %}
+                                <div class="error">{{ form_errors(form.email) }}</div>
+                            {% endif %}
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, { 'attr': {'placeholder': 'Введите е-mail'} } ) }}
+                        </div>
+
+                        <div class="field">
+                            {% if(form_errors(form.password)) %}
+                                <div class="error">{{ form_errors(form.password1) }}</div>
+                            {% endif %}
+                            {{ form_label(form.password) }}
+                            {{ form_widget(form.password, { 'attr': {'placeholder': 'Введите пароль'} } ) }}
+                        </div>
+
+                        <div class="field">
+                            {% if(form_errors(form.name)) %}
+                                <div class="error">{{ form_errors(form.name) }}</div>
+                            {% endif %}
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name, { 'attr': {'placeholder': 'Введите имя'} } ) }}
+                        </div>
+
+                        <div class="field">
+                            {% if(form_errors(form.phone)) %}
+                                <div class="error">{{ form_errors(form.phone) }}</div>
+                            {% endif %}
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone, { 'attr': {'placeholder': 'Введите номер телефона'} } ) }}
+                        </div>
+
+                        <div class="field">
+                            {% if(form_errors(form.region)) %}
+                                <div class="error">{{ form_errors(form.region) }}</div>
+                            {% endif %}
+                            {{ form_label(form.region) }}
+                            {{ form_widget(form.region, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_city'), 'data-region':  region  } } ) }}
+                        </div>
+                        <script type="text/javascript">
+                            var region_select = $('#user_name_region');
+                            var region = region_select.data('region');
+                            region_select.find('option:contains('+ region +')').attr('selected', 'selected');
+                        </script>
+
+                        <div class="field">
+                            {% if(form_errors(form.city)) %}
+                                <div class="error">{{ form_errors(form.city) }}</div>
+                            {% endif %}
+                            {{ form_label(form.city) }}
+                            {{ form_widget(form.city, {'attr': {'data-city': city } } ) }}
+                        </div>
+                        <script type="text/javascript">
+                            var city_select = $('#user_name_city');
+                            var city = city_select.data('city');
+                            city_select.find('option:contains('+ city +')').attr('selected', 'selected');
+                        </script>
+
+                        {{ form_row(form._token) }}
+
+                        <input type="submit" value="Сохранить" />
+                    </div><!-- .add_auto -->
+
+                </fieldset>
+
+            </form>
+
+            <script type="text/javascript"> if($('.success').length > 0){ $('.add_form').hide(); }</script>
+
+        </div>
+
+    {% endblock %}

@@ -1,0 +1,35 @@
+{% if pagescount > 1 %}
+    <ul class="pagination">
+        {% if page > 3 %}
+            <li><a href="{{ path('cars') }}page/1">Первая</a></li>
+            <span>...</span>
+        {% endif %}
+        {% if page > 1 %}
+            <li><a href="{{ path('cars') }}page/{{ page-1 }}">Назад</a></li>
+        {% endif %}
+        {% if page > 1 and page < 4 %}
+            <li><a href="{{ path('cars') }}page/1">1</a></li>
+        {% endif %}
+        {% if page > 3 %}
+            <li><a href="{{ path('cars') }}page/{{ page-2 }}">{{ page-2 }}</a></li>
+        {% endif %}
+        {% if page > 2 %}
+            <li><a href="{{ path('cars') }}page/{{ page-1 }}">{{ page-1 }}</a></li>
+        {% endif %}
+        <li class="active_page_link">{{ page }}</li>
+        {% if page < pagescount %}
+            <li><a href="{{ path('cars') }}page/{{ page+1 }}">{{ page+1 }}</a></li>
+        {% endif %}
+        {% if page+1 < pagescount %}
+            <li><a href="{{ path('cars') }}page/{{ page+2 }}">{{ page+2 }}</a></li>
+        {% endif %}
+        {% if page < pagescount %}
+            <li><a href="{{ path('cars') }}page/{{ page+1 }}">Вперед</a></li>
+        {% endif %}
+        {% if page+3 <= pagescount %}
+            <span>...</span>
+            <li><a href="{{ path('cars') }}page/{{ pagescount }}">Последняя</a></li>
+        {% endif %}
+
+    </ul>
+{% endif %}

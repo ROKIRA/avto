@@ -1,0 +1,31 @@
+{% if form is defined %} {{ dump(form) }}{% endif %}
+<div class="auth_form auth">
+    {% if app.session.get('user_name') %}
+        <p>Добро пожаловать, <span>{{ app.session.get('user_name') }}</span></p>
+        <p><a href="{{ path('cabinet') }}" id="goto_cabinet">Кабинет</a></p>
+        <p><a href="#" id="logout">Выйти</a></p>
+    {% else %}
+        <form action="{{ path('auth') }}" method="post" {{ form_enctype(auth_form) }} id="auth_form">
+
+            {% if(form_errors(auth_form.email)) %}
+                <div class="error">{{ form_errors(auth_form.email) }}</div>
+            {% endif %}
+            {{ form_label(auth_form.email) }}
+            {{ form_widget(auth_form.email) }}
+
+            {% if(form_errors(auth_form.password)) %}
+                <div class="error">{{ form_errors(auth_form.password) }}</div>
+            {% endif %}
+            {{ form_label(auth_form.password) }}
+            {{ form_widget(auth_form.password) }}
+
+            <input type="submit" value="Войти" />
+
+        </form>
+
+        <p><a href="{{ path('reg') }}">Зарегестрироваться</a></p>
+    {% endif %}
+
+</div>
+<br class="clear"/>
+

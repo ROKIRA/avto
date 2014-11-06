@@ -1,0 +1,7 @@
+auto_admin_homepage:
+    path:     /
+    defaults: { _controller: AutoAdminBundle:Default:index }
+
+add:
+    path:     /add
+    defaults: { _controller: AutoAdminBundle:Add:new }

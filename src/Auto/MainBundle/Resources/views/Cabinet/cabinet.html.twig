@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+
+    {% block leftbar %}
+        {% include 'AutoMainBundle:Cabinet:cabmenu.html.twig' %}
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="content">
+            <h2 class="page_title">Мои объявления</h2>
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            {% if(auto) %}
+                <ul class="cars">
+                    {% for car in auto %}
+                        <li class="myitem">
+                            <div class="for_my_img">
+                                <a href="/Symfony/web/app_dev.php/auto/{{ car.id }}/{{ car.mark }}-{{ car.model }}"><img src="{{ asset('bundles/auto/userfiles/') }}{{ car.img }}" alt="{{ car.model }}"/></a>
+                            </div><!-- .for_my_img -->
+                            <h3 class="auto_title"><a href="/Symfony/web/app_dev.php/auto/{{ car.id }}/{{ car.mark }}-{{ car.model }}">{{ car.mark }} {{ car.model }} {% if car.new == 0 %} (б/у) {% endif %} </a></h3>
+                            <p class="info about">
+                                <span class="price">{{ car.price|number_format(0, '.', ' ') }}</span> грн <br/>
+                                <a href="/Symfony/web/app_dev.php/auto/{{ car.id }}/{{ car.mark }}-{{ car.model }}">Посмотреть</a>
+                                <a href="{{ path('auto_main_homepage') }}auto-edit/{{ car.id }}">Изменить</a>
+                            </p>
+                        </li>
+                        <br class="clear"/>
+                    {% endfor %}
+                </ul>
+
+
+               {# {% block pagination %}
+                    {% include 'AutoMainBundle:Default:pagination.html.twig' %}
+                {% endblock %}#}
+
+            {% else %}
+                <p>Объявлений пока нет!</p>
+                <p><a href="{{ path('auto_new') }}">Добавить объявление</a></p>
+            {% endif %}
+
+        </div><!-- .content -->
+
+
+    {% endblock %}

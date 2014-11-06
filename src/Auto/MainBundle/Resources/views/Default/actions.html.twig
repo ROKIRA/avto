@@ -1,0 +1,22 @@
+<section class="news">
+    <h3 class="news_title">Акции</h3>
+    <div class="all_news_block">
+        {% if news %}
+            {% for a in news %}
+                {% if a.type == 'actions' %}
+                    <div class="news_block">
+                        <div class="news_image">
+                            <img src="/Symfony/web/bundles/auto/userfiles/{{ a.image }}" alt="{{ a.title }}"/>
+                        </div>
+                        <h4 class="news_block_title"><a href="#">{{ a.title }}</a></h4>
+                        <article>{{ a.description }}</article>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <br class="clear"/>
+        {% else %}
+            <p>Акций пока нет!</p>
+        {% endif %}
+
+    </div>
+</section>

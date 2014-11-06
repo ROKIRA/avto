@@ -1,0 +1,89 @@
+{% extends "::base.html.twig" %}
+
+    {% block main %}
+        {% block content %}
+            <div class="content homepage">
+
+                {% block filter %}
+                    <div class="filter">
+                        <form action="{{ path('filter_auto') }}" method="post" {{ form_enctype(form) }} class="filter_form">
+                            <div class="fields">
+
+                                <h3 class="filter_title">Поиск авто</h3>
+
+                                {{ form_errors(form.new) }}
+                                {{ form_widget(form.new) }}
+
+                                <div class="filter-field">
+                                    {{ form_label(form.mark) }}
+                                    {{ form_widget(form.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model') } } ) }}
+                                    <script type="text/javascript">
+                                        $('#filter_auto_mark').prepend('<option value="0" selected>Выберите марку</option>');
+                                    </script>
+                                </div>
+
+                                <div class="filter-field">
+                                    {{ form_label(form.model) }}
+                                    {{ form_widget(form.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year') } } ) }}
+                                    <script type="text/javascript">
+                                        $('#filter_auto_model').empty().prepend('<option value="0" selected>Выберите модель</option>');
+                                    </script>
+                                </div>
+
+                                <div class="filter-field">
+                                    {{ form_label(form.region) }}
+                                    {{ form_widget(form.region) }}
+                                    <script type="text/javascript">
+                                        $('#filter_auto_region').prepend('<option value="0" selected>Любой</option>');
+                                    </script>
+                                </div>
+
+                                <div class="filter-field-small">
+                                    <h4>Цена:</h4>
+                                    {{ form_errors(form.price_from) }}
+                                    {{ form_widget(form.price_from, { 'attr': {'placeholder': 'От', 'name': 'price_from' } } ) }}
+
+                                    {{ form_errors(form.price_to) }}
+                                    {{ form_widget(form.price_to, { 'attr': {'placeholder': 'до', 'name': 'price_to'} } ) }}
+
+                                    <h4>Год выпуска:</h4>
+                                    {{ form_errors(form.year_from) }}
+                                    {{ form_widget(form.year_from, { 'attr': {'placeholder': 'С', 'name': 'year_from' } } ) }}
+
+                                    {{ form_errors(form.year_to) }}
+                                    {{ form_widget(form.year_to, { 'attr': {'placeholder': 'по', 'name': 'year_to'} } ) }}
+
+                                </div>
+                            </div>
+                            {{ form_errors(form.photo) }}
+                            {{ form_widget(form.photo) }}
+                            {{ form_label(form.photo) }}
+
+                            <input type="submit" value="Найти" name="find" />
+
+                        </form>
+                    </div>
+                {% endblock %}
+
+                {% block slider %}
+                    {% include 'AutoMainBundle:Default:auto_slider.html.twig' %}
+                {% endblock %}
+
+                {% block zayavka %}
+                    {% include 'AutoMainBundle:Default:zayavka.html.twig' %}
+                {% endblock %}
+
+                {% block news %}
+                    {% include 'AutoMainBundle:Default:news.html.twig' %}
+                {% endblock %}
+
+                {% block actions %}
+                    {% include 'AutoMainBundle:Default:actions.html.twig' %}
+                {% endblock %}
+
+            </div><!-- .content -->
+            <br class="clear"/>
+        {% endblock %}
+    {% endblock %}
+
+

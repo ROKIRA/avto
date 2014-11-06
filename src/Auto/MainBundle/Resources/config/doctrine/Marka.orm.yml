@@ -1,0 +1,11 @@
+Auto\MainBundle\Entity\Marka:
+    type: entity
+    table: marka
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        mark:
+            type: string
+            length: 255

@@ -1,0 +1,14 @@
+Auto\MainBundle\Entity\CarYear:
+    type: entity
+    table: car_year
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        year:
+            type: string
+            length: 255
+        model_id:
+            type: integer
+            length: 10

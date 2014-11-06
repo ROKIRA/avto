@@ -1,0 +1,115 @@
+auto_main_homepage:
+    path:     /
+    defaults: { _controller: AutoMainBundle:Default:index}
+
+cars:
+    path:     /cars/
+    defaults: { _controller: AutoMainBundle:Cars:index, page: 1 }
+
+cars_loop:
+    path:     /cars/page/{page}
+    defaults: { _controller: AutoMainBundle:Cars:index, page: 1 }
+
+auto_new:
+    path: /add-auto
+    defaults: { _controller: AutoMainBundle:Add:newAuto }
+
+detail_new:
+    path: /add-detail
+    defaults: { _controller: AutoMainBundle:Add:newDetail }
+
+auto_about:
+    path: /auto/{id}/{car}/
+    defaults: { _controller: AutoMainBundle:AboutAuto:index }
+
+filter_auto:
+    path: /search/
+    defaults: { _controller: AutoMainBundle:FilterAuto:index }
+
+reg:
+    path: /reg
+    defaults: { _controller: AutoMainBundle:User:new }
+
+AutoMainBundle_ajax_update_mydata_model:
+  pattern:  /update/data/from/ajax/call/model
+  defaults: { _controller: AutoMainBundle:MyAjax:getModels }
+  requirements:
+          _method:  POST
+
+zayavka_new:
+    pattern:  /update/data/from/ajax/call/newZayavka
+    defaults: { _controller: AutoMainBundle:MyAjax:newZayavka }
+    requirements:
+            _method:  POST
+
+AutoMainBundle_ajax_update_mydata_year:
+  pattern:  /update/data/from/ajax/call/car_year
+  defaults: { _controller: AutoMainBundle:MyAjax:getCarYear }
+  requirements:
+          _method:  POST
+
+AutoMainBundle_ajax_update_mydata_city:
+  pattern:  /update/data/from/ajax/call/city
+  defaults: { _controller: AutoMainBundle:MyAjax:getCity }
+  requirements:
+          _method:  POST
+
+AutoMainBundle_ajax_update_mydata_slider_new:
+  pattern:  /update/data/from/ajax/call/slider/new
+  defaults: { _controller: AutoMainBundle:MyAjax:getSlideNew }
+  requirements:
+          _method:  POST
+
+AutoMainBundle_ajax_update_mydata_slider_bu:
+  pattern:  /update/data/from/ajax/call/slider/bu
+  defaults: { _controller: AutoMainBundle:MyAjax:getSlideBU }
+  requirements:
+          _method:  POST
+
+add_comment:
+  pattern:  /update/data/from/ajax/call/add_comment
+  defaults: { _controller: AutoMainBundle:MyAjax:addComment }
+  requirements:
+          _method:  POST
+
+auth:
+  pattern:  /auth
+  defaults: { _controller: AutoMainBundle:Auth:auth }
+  requirements:
+          _method:  POST
+
+logout:
+  pattern:  /logout
+  defaults: { _controller: AutoMainBundle:Auth:logout }
+  requirements:
+          _method:  POST
+
+cabinet:
+  pattern: /cabinet
+  defaults: { _controller: AutoMainBundle:Cabinet:index }
+
+change_profile:
+  pattern: /profile
+  defaults: { _controller: AutoMainBundle:Cabinet:profile }
+
+auto_edit:
+  pattern: /auto-edit/{id}
+  defaults: { _controller: AutoMainBundle:Cabinet:editAuto }
+
+zayavka_list:
+  pattern: /zayavka-list
+  defaults: { _controller: AutoMainBundle:Cabinet:zayavkaList }
+
+zayavka_edit:
+  pattern: /zayavka-edit/{id}
+  defaults: { _controller: AutoMainBundle:Cabinet:editZayavka }
+
+login:
+    pattern:   /login
+    defaults:  { _controller: AutoMainBundle:Security:login }
+login_check:
+    pattern:   /login_check
+
+admin_panel:
+    path: /admin
+    defaults:  { _controller: AutoAdminBundle:Default:index }

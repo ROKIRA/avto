@@ -1,0 +1,79 @@
+{# app/Resources/views/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}Auto{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/auto/css/reset.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('bundles/auto/css/main_style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('bundles/auto/css/colorpicker.css') }}" type="text/css"/>
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/auto/script/jquery-1.11.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/auto/script/main_script.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/auto/script/colorpicker.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/auto/script/jquery.lightbox_me.js') }}"></script>
+    {% endblock %}
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="wrapper">
+        {% block header %}
+        <header class="header">
+            <h1 class="logo">AUTO</h1>
+            <p>Авто базар</p>
+
+            {% block auth %}
+                {% render(controller('AutoMainBundle:Auth:index')) %}
+            {% endblock%}
+
+        </header>
+        {% endblock %}
+        <nav class="navigation">
+            <ul>
+                <li class="nav-main"><a href="http://localhost/Symfony/web/app_dev.php/">Главная</a></li>
+                <li><a href="http://localhost/Symfony/web/app_dev.php/cars">Автомобили</a></li>
+                {% if app.session.get('user_name') %}
+                    <li class="nav-add-auto"><a href="http://localhost/Symfony/web/app_dev.php/add-auto">Добавить авто</a></li>
+                    <li class="nav-add-auto"><a href="http://localhost/Symfony/web/app_dev.php/add-detail">Добавить деталь</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block main %}
+            <div class="main">
+                {% block leftbar %}
+                    <aside class="leftbar">
+
+                        {% block filter %}
+
+                        {% endblock %}
+
+                    </aside>
+                {% endblock %}
+
+                {% block content %}
+
+                {% endblock %}
+            </div>
+
+        {% endblock %}
+        {% block footer %}
+            <br class="clear"/>
+            <footer class="footer">
+                <p>&copy; Харьков 2014</p>
+            </footer>
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>

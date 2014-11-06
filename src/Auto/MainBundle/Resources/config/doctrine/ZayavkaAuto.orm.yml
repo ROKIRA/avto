@@ -1,0 +1,45 @@
+Auto\MainBundle\Entity\ZayavkaAuto:
+    type: entity
+    table: zayavka_auto
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+            length: 10
+        region:
+            type: string
+            length: 255
+        mark:
+            type: string
+            length: 255
+        model:
+            type: string
+            length: 255
+        year:
+            type: integer
+            length: 4
+        body:
+            type: string
+            length: 255
+        color:
+            type: string
+            length: 255
+        run:
+            type: integer
+            length: 10
+        new:
+            type: boolean
+        vip:
+            type: boolean
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text
+        date_add:
+            type: datetime
+        date_update:
+            type: datetime

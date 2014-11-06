@@ -1,0 +1,17 @@
+Auto\MainBundle\Entity\UserAuto:
+    type: entity
+    table: user_auto
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        id_user:
+            type: integer
+            length: 10
+        id_auto:
+            type: integer
+            length: 10
+        date:
+            type: datetime
+            length: 255

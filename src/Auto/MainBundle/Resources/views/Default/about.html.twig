@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+    {% block content %}
+
+        {% if(auto) %}
+        <h2 class="page_title">{{ auto.mark }} {{ auto.model }} {% if auto.new == 0 %} (б/у) {% endif %}</h2>
+
+        <div class="auto">
+            <img class="auto_img" src="{{ asset('bundles/auto/userfiles/') }}{{ auto.img }}" alt="{{ auto.model }}"/>
+            <p class="info"><span>Год выпуска:</span> {{ auto.year }}</p>
+            <p class="info"><span>Пробег:</span> {{ auto.run|number_format(0, '.', ' ') }} км</p>
+            <p class="info"><span>Цвет:</span> <span class="color_box" data-hex="#{{ auto.color }}"></span> </p>
+            <script type="text/javascript"> $(".color_box").css('background', $('.color_box').data('hex')); </script>
+            <article class="description">{{ auto.description }}</article>
+            <p class="info clearfix"><span>Цена:</span>  <span class="price">{{ auto.price|number_format(0, '.', ' ') }}</span> грн </p>
+        </div>
+
+        {% else %}
+        <h2 class="page_title">Ошибка!!!</h2>
+        <p class="not_find">Нет запрашиваемого автомобиля!!!</p>
+        {% endif %}
+
+        <hr/>
+    {% block comments %}
+        {% include 'AutoMainBundle:Default:comments.html.twig' %}
+    {% endblock %}
+
+    {% endblock %}

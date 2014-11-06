@@ -1,0 +1,16 @@
+auto_admin:
+    resource: "@AutoAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+auto_main:
+    resource: "@AutoMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_hello:
+    resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+
+demos_blog:
+    resource: "@DemosBlogBundle/Resources/config/routing.php"
+    prefix:   /
+

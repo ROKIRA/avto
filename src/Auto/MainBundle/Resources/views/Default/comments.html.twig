@@ -1,0 +1,135 @@
+<section class="comments" id="comments" data-car="{{ car_id }}">
+{% if not app.session.get('user_name') %}
+    <form action="{{ path('add_comment') }}" method="post" class="add_comment_form" {{ form_enctype(form) }}>
+        <div class="fields">
+            <h4 class="title">Добавить комментарий</h4>
+            <div class="field">
+                {{ form_errors(form.name) }}
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+            </div>
+            <div class="field">
+                {{ form_errors(form.email) }}
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="field description_field">
+                {{ form_errors(form.text) }}
+                {{ form_label(form.text) }}
+                {{ form_widget(form.text, { 'attr': {'cols': '30', 'rows' : '3'} } ) }}
+            </div>
+        </div>
+        <br class="clear"/>
+        <input type="submit" value="Добавить"/>
+    </form>
+{% else %}
+    <form action="{{ path('add_comment') }}" method="post" class="add_comment_form" {{ form_enctype(form) }}>
+        <div class="fields">
+            <h4 class="title">Добавить комментарий</h4>
+            <div class="field">
+                {{ form_errors(form.name) }}
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, { 'attr': {'value': app.session.get('user_name'), 'readonly': 'readonly' } } ) }}
+            </div>
+            <div class="field description_field">
+                {{ form_errors(form.text) }}
+                {{ form_label(form.text) }}
+                {{ form_widget(form.text, { 'attr': {'cols': '30', 'rows' : '3'} } ) }}
+            </div>
+        </div>
+        <br class="clear"/>
+        <input type="submit" value="Добавить"/>
+    </form>
+{% endif %}
+{% if comments %}
+
+    {% for comment in comments %}
+
+        {% if comment.parentId == 0 %}
+            <div class="comment" data-id="{{ comment.id }}" data-level="1">
+                <div class="avatar">
+                    <img src="/Symfony/web/bundles/auto/images/avatar-50x50.gif" alt="avatar" />
+                </div>
+                <div class="comment_content">
+                    <div class="comment_header">
+                        <p class="name">{{ comment.name }}</p>
+                        <p class="date_published">{{ comment.dateAdd|date("d.m.Y, H:i") }}</p>
+                        <br class="clear"/>
+                    </div>
+                    <div class="comment_body">
+                        <p>{{ comment.text }}</p>
+                    </div>
+                </div>
+                <a class="comment_answer" href="#">Ответить</a>
+            </div>
+
+            {% for answer in comments %}
+                {% if answer.parentId == comment.id %}
+                    <div class="comment answer_comment" data-id="{{ answer.id }}" data-level="2">
+                        <div class="avatar">
+                            <img src="/Symfony/web/bundles/auto/images/avatar-50x50.gif" alt="avatar" />
+                        </div>
+                        <div class="comment_content">
+                            <div class="comment_header">
+                                <p class="name">{{ answer.name }}</p>
+                                <p class="date_published">{{ answer.dateAdd|date("d.m.Y, H:i") }}</p>
+                                <br class="clear"/>
+                            </div>
+                            <div class="comment_body">
+                                <p>{{ answer.text }}</p>
+                            </div>
+                        </div>
+                        <a class="comment_answer" href="#">Ответить</a>
+                    </div>
+
+                    {% for answer2 in  comments %}
+                        {% if answer2.parentId == answer.id %}
+                            <div class="comment answer2_comment" data-id="{{ answer2.id }}" data-level="3">
+                                <div class="avatar">
+                                    <img src="/Symfony/web/bundles/auto/images/avatar-50x50.gif" alt="avatar" />
+                                </div>
+                                <div class="comment_content">
+                                    <div class="comment_header">
+                                        <p class="name">{{ answer2.name }}</p>
+                                        <p class="date_published">{{ answer2.dateAdd|date("d.m.Y, H:i") }}</p>
+                                        <br class="clear"/>
+                                    </div>
+                                    <div class="comment_body">
+                                        <p>{{ answer2.text }}</p>
+                                    </div>
+                                </div>
+                                <a class="comment_answer" href="#">Ответить</a>
+                            </div>
+
+                            {% for answer3 in  comments %}
+                                {% if answer3.parentId == answer2.id %}
+                                    <div class="comment answer3_comment" data-id="{{ answer3.id }}" data-level="4">
+                                        <div class="avatar">
+                                            <img src="/Symfony/web/bundles/auto/images/avatar-50x50.gif" alt="avatar" />
+                                        </div>
+                                        <div class="comment_content">
+                                            <div class="comment_header">
+                                                <p class="name">{{ answer3.name }}</p>
+                                                <p class="date_published">{{ answer3.dateAdd|date("d.m.Y, H:i") }}</p>
+                                                <br class="clear"/>
+                                            </div>
+                                            <div class="comment_body">
+                                                <p>{{ answer3.text }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <p>Комментариев пока нет!</p>
+{% endif %}
+
+</section>

@@ -1,0 +1,43 @@
+Auto\MainBundle\Entity\Auto:
+    properties:
+        region:
+            - NotBlank: ~
+        mark:
+            - NotBlank: ~
+        model:
+            - NotBlank: ~
+        year:
+            - NotBlank: ~
+        body:
+            - NotBlank: ~
+        run:
+            - NotBlank: ~
+        color:
+            - NotBlank: ~
+        price:
+            - NotBlank: ~
+            - Type: integer
+        file:
+            - Image: ~
+        description:
+            - NotBlank: ~
+
+Auto\MainBundle\Entity\User:
+    properties:
+        email:
+            - NotBlank: ~
+        password:
+            - NotBlank: ~
+        name:
+            - NotBlank: ~
+        region:
+            - NotBlank: ~
+        city:
+            - NotBlank: ~
+
+Auto\MainBundle\Entity\BaseUser:
+    properties:
+        email:
+            - NotBlank: ~
+        password:
+            - NotBlank: ~

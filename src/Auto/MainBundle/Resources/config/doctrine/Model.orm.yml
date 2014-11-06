@@ -1,0 +1,14 @@
+Auto\MainBundle\Entity\Model:
+    type: entity
+    table: model
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        mark_id:
+            type: integer
+            length: 15
+        model:
+            type: string
+            length: 255

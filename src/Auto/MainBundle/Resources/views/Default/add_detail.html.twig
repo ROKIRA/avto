@@ -1,0 +1,108 @@
+{% extends "::base.html.twig" %}
+    {% block content %}
+        <div class="content">
+            <h2 class="page_title add">Добавление детали</h2>
+            {% if app.session.get('user_name') %}
+                <form action="{{ path('detail_new') }}" method="post" {{ form_enctype(form) }} class="add_form">
+                    <fieldset>
+                        <legend>Заполните поля</legend>
+
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                            <div class="success">
+                                {{ flashMessage }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="add_auto">
+                            <div class="field">
+                                {% if(form_errors(form.region)) %}
+                                    <div class="error">{{ form_errors(form.region) }}</div>
+                                {% endif %}
+                                {{ form_label(form.region) }}
+                                {{ form_widget(form.region) }}
+                            </div>
+                            <script type="text/javascript">
+                                $('#add_auto_region').prepend('<option selected>Выберите регион</option>');
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.mark)) %}
+                                    <div class="error">{{ form_errors(form.mark) }}</div>
+                                {% endif %}
+                                {{ form_label(form.mark) }}
+                                {{ form_widget(form.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model') } } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                $('#add_auto_mark').prepend('<option selected>Выберите марку</option>');
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.model)) %}
+                                    <div class="error">{{ form_errors(form.model) }}</div>
+                                {% endif %}
+                                {{ form_label(form.model) }}
+                                {{ form_widget(form.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year') } } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                $('#add_auto_model').empty().prepend('<option selected>Выберите модель</option>');
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.year)) %}
+                                    <div class="error">{{ form_errors(form.year) }}</div>
+                                {% endif %}
+                                {{ form_label(form.year) }}
+                                {{ form_widget(form.year, { 'attr': {'placeholder': 'Год выпуска автомобиля'} } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                $('#add_auto_year').empty().prepend('<option selected>Укажите год выпуска</option>');
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.name)) %}
+                                    <div class="error">{{ form_errors(form.name) }}</div>
+                                {% endif %}
+                                {{ form_label(form.name) }}
+                                {{ form_widget(form.name, { 'attr': {'placeholder': 'Наименование: '} } ) }}
+                            </div>
+
+                            <div class="field">
+                                {% if(form_errors(form.file)) %}
+                                    <div class="error">{{ form_errors(form.file) }}</div>
+                                {% endif %}
+                                {{ form_label(form.file) }}
+                                {{ form_widget(form.file) }}
+                            </div>
+
+                            <div class="field">
+                                {% if(form_errors(form.price)) %}
+                                    <div class="error">{{ form_errors(form.price) }}</div>
+                                {% endif %}
+                                {{ form_label(form.price) }}
+                                {{ form_widget(form.price, { 'attr': {'placeholder': 'Цена автомобиля'} } ) }}
+                            </div>
+
+                            <div class="field description_field">
+                                {% if(form_errors(form.description)) %}
+                                    <div class="error">{{ form_errors(form.description) }}</div>
+                                {% endif %}
+                                {{ form_label(form.description) }}
+                                {{ form_widget(form.description, { 'attr': {'cols': '30', 'rows' : '5'} } ) }}
+                            </div>
+
+                            {{ form_row(form._token) }}
+
+                            <input type="submit" value="Добавить" />
+                        </div><!-- .add_auto -->
+
+                    </fieldset>
+
+                </form>
+            {% else %}
+                <p class="notice">Для добавления детали необходимо сначала <strong>авторизоваться</strong></p>
+                <p><a href="{{ path('reg') }}">Зарегестрироваться</a></p>
+            {% endif %}
+
+        </div>
+
+    {% endblock %}

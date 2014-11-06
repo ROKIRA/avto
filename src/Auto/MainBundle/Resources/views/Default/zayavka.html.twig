@@ -1,0 +1,130 @@
+<div class="zayavka">
+    <h2>Оставить заявку на авто</h2>
+    <div class="for_img">
+        <img src="{{ asset('bundles/auto/images/') }}porshe_zayavka.jpg" alt=""/>
+    </div>
+    <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque id quam vitae ullamcorper. Maecenas a facilisis nisl. Sed nec velit a purus rutrum pulvinar. Integer tristique magna venenatis nisl commodo, quis dignissim diam faucibus. Proin a risus et justo pellentesque pulvinar. Etiam ut vestibulum purus, vitae volutpat velit. Phasellus sagittis elit a sollicitudin sodales. Vivamus tempor ornare aliquet. Aenean in posuere nisl. Aliquam orci nisi, molestie ut neque vel, dignissim convallis purus. Donec metus enim, tempus et tincidunt non, faucibus sed urna. Praesent sit amet sapien et lorem gravida commodo ut at velit.</article>
+    <button id="submit_zayavka">Оставить заявку</button>
+</div>
+<br class="clear"/>
+
+<section id="zayavka_form_layout">
+        <div class="zayavka_form" id="zayavka_form">
+            <div class="zayavka_form_header">
+                <h2 class="page_title_popup">Оставление заявки на авто</h2>
+                <p class="close_zayavka_form">Закрыть</p>
+            </div>
+            <div id="zayavka_form_content">
+                {% if app.session.get('user_name') %}
+                    <form action="{{ path('zayavka_new') }}" method="post" {{ form_enctype(form) }} class="add_form" id="form_zayavka">
+                        <fieldset>
+                            <legend>Заполните поля</legend>
+                            {% for flashMessage in app.session.flashbag.get('notice') %}
+                                <div class="success">
+                                    {{ flashMessage }}
+                                </div>
+                            {% endfor %}
+
+                            <div class="add_auto">
+                                <div class="field">
+                                    {% if(form_errors(form2.region)) %}
+                                        <div class="error">{{ form_errors(form2.region) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.region) }}
+                                    {{ form_widget(form2.region) }}
+                                </div>
+                                <script type="text/javascript">
+                                    $('#add_zayavka_auto_region').prepend('<option value="any" selected>Любой</option>');
+                                </script>
+
+                                <div class="field">
+                                    {% if(form_errors(form2.mark)) %}
+                                        <div class="error">{{ form_errors(form2.mark) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.mark) }}
+                                    {{ form_widget(form2.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model') } } ) }}
+                                </div>
+                                <script type="text/javascript">
+                                    $('#add_zayavka_auto_mark').prepend('<option value="0" selected>Выберите марку</option>');
+                                </script>
+
+                                <div class="field">
+                                    {% if(form_errors(form2.model)) %}
+                                        <div class="error">{{ form_errors(form2.model) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.model) }}
+                                    {{ form_widget(form2.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year') } } ) }}
+                                </div>
+                                <script type="text/javascript">
+                                    $('#add_zayavka_auto_model').empty().prepend('<option value="0" selected>Выберите модель</option>');
+                                </script>
+
+                                <div class="field">
+                                    {% if(form_errors(form2.year)) %}
+                                        <div class="error">{{ form_errors(form.year) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.year) }}
+                                    {{ form_widget(form2.year, { 'attr': {'placeholder': 'Год выпуска автомобиля'} } ) }}
+                                </div>
+                                <script type="text/javascript">
+                                    $('#add_zayavka_auto_year').empty().prepend('<option value="0" selected>Укажите год выпуска</option>');
+                                </script>
+
+                                <div class="field">
+                                    {% if(form_errors(form2.body)) %}
+                                        <div class="error">{{ form_errors(form.body) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.body) }}
+                                    {{ form_widget(form2.body, { 'attr': {'placeholder': 'Тип кузова: '} } ) }}
+                                </div>
+
+                                <div class="field">
+                                    {% if(form_errors(form2.run)) %}
+                                        <div class="error">{{ form_errors(form.run) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.run) }}
+                                    {{ form_widget(form2.run, { 'attr': {'placeholder': 'Пробег автомобиля'} } ) }}
+                                </div>
+                                <div class="field color">
+                                    {% if(form_errors(form2.color)) %}
+                                        <div class="error">{{ form_errors(form.color) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.color) }}
+                                    {{ form_widget(form2.color, { 'attr': { 'placeholder': 'Цвет автомобиля', 'class': 'add_zayavka_color_field'} } ) }}
+                                    <span class="color_box"></span>
+                                </div>
+                                <div class="field">
+                                    {{ form_label(form2.new) }}
+                                    {{ form_widget(form2.new) }}
+                                </div>
+                                <div class="field">
+                                    {% if(form_errors(form2.price)) %}
+                                        <div class="error">{{ form_errors(form2.price) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.price) }}
+                                    {{ form_widget(form2.price, { 'attr': {'placeholder': 'Цена автомобиля'} } ) }}
+                                </div>
+                                <div class="field description_field">
+                                    {% if(form_errors(form2.description)) %}
+                                        <div class="error">{{ form_errors(form2.description) }}</div>
+                                    {% endif %}
+                                    {{ form_label(form2.description) }}
+                                    {{ form_widget(form2.description, { 'attr': {'cols': '30', 'rows' : '5'} } ) }}
+                                </div>
+
+                                {{ form_row(form2._token) }}
+
+                                <input type="submit" value="Добавить" id="send_zayavka"/>
+                            </div><!-- .add_auto -->
+
+                        </fieldset>
+
+                    </form>
+                {% else %}
+                    <p class="notice">Для добавления заявки необходимо авторизоваться!</p>
+                {% endif %}
+            </div>
+
+        </div>
+</section>
+

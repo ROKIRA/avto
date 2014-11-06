@@ -1,0 +1,132 @@
+{% extends "::base.html.twig" %}
+
+    {% block leftbar %}
+        {% include 'AutoMainBundle:Cabinet:cabmenu.html.twig' %}
+    {% endblock %}
+
+    {% block content %}
+        <div class="content">
+            <h2 class="page_title add">Изменение заявки на автомобиль</h2>
+            {% if app.session.get('user_name') %}
+                <form action="{{ path('auto_main_homepage') }}zayavka-edit/{{ id }}" method="post" {{ form_enctype(form) }} class="add_form" id="form_zayavka">
+                    <fieldset>
+                        <legend>Измените необходимые поля</legend>
+
+                        <div class="add_auto">
+                            <div class="field">
+                                {% if(form_errors(form.region)) %}
+                                    <div class="error">{{ form_errors(form.region) }}</div>
+                                {% endif %}
+                                {{ form_label(form.region) }}
+                                {{ form_widget(form.region, { 'attr': {'data-region': region} } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                var region_select = $('#add_zayavka_auto_region');
+                                var region = region_select.data('region');
+                                if(region != 'Любой'){
+                                    region_select.find('option:contains('+ region +')').attr('selected', 'selected');
+                                }else{
+                                    region_select.prepend('<option value="any" selected>Любой</option>');
+                                }
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.mark)) %}
+                                    <div class="error">{{ form_errors(form.mark) }}</div>
+                                {% endif %}
+                                {{ form_label(form.mark) }}
+                                {{ form_widget(form.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model'), 'data-mark': mark } } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                var mark_select = $('#add_zayavka_auto_mark');
+                                var mark = mark_select.data('mark');
+                                    mark_select.find('option:contains('+ mark +')').attr('selected', 'selected');
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.model)) %}
+                                    <div class="error">{{ form_errors(form.model) }}</div>
+                                {% endif %}
+                                {{ form_label(form.model) }}
+                                {{ form_widget(form.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year'), 'data-model': model } } ) }}
+                            </div>
+
+                            <div class="field">
+                                {% if(form_errors(form.year)) %}
+                                    <div class="error">{{ form_errors(form.year) }}</div>
+                                {% endif %}
+                                {{ form_label(form.year) }}
+                                {{ form_widget(form.year, { 'attr': {'placeholder': 'Год выпуска автомобиля', 'data-year': year} } ) }}
+                            </div>
+                            <script type="text/javascript">
+                                var year_select =  $('#add_zayavka_auto_year');
+                                var year = year_select.data('year');
+                                if(year != ''){
+                                    year_select.find('option:contains('+ year +')').attr('selected', 'selected');
+                                }else{
+                                    year_select.empty().prepend('<option value="0" selected>Укажите год выпуска</option>');
+                                }
+                            </script>
+
+                            <div class="field">
+                                {% if(form_errors(form.body)) %}
+                                    <div class="error">{{ form_errors(form.body) }}</div>
+                                {% endif %}
+                                {{ form_label(form.body) }}
+                                {{ form_widget(form.body, { 'attr': {'placeholder': 'Тип кузова: '} } ) }}
+                            </div>
+
+                            <div class="field">
+                                {% if(form_errors(form.run)) %}
+                                    <div class="error">{{ form_errors(form.run) }}</div>
+                                {% endif %}
+                                {{ form_label(form.run) }}
+                                {{ form_widget(form.run, { 'attr': {'placeholder': 'Пробег автомобиля'} } ) }}
+                            </div>
+
+                            <div class="field color">
+                                {% if(form_errors(form.color)) %}
+                                    <div class="error">{{ form_errors(form.color) }}</div>
+                                {% endif %}
+                                {{ form_label(form.color) }}
+                                {{ form_widget(form.color, { 'attr': { 'placeholder': 'Цвет автомобиля'} } ) }}
+                                <span class="color_box"></span>
+                            </div>
+
+                            <div class="field">
+                                {{ form_label(form.new) }}
+                                {{ form_widget(form.new) }}
+                            </div>
+
+                            <div class="field">
+                                {% if(form_errors(form.price)) %}
+                                    <div class="error">{{ form_errors(form.price) }}</div>
+                                {% endif %}
+                                {{ form_label(form.price) }}
+                                {{ form_widget(form.price, { 'attr': {'placeholder': 'Цена автомобиля'} } ) }}
+                            </div>
+
+                            <div class="field description_field">
+                                {% if(form_errors(form.description)) %}
+                                    <div class="error">{{ form_errors(form.description) }}</div>
+                                {% endif %}
+                                {{ form_label(form.description) }}
+                                {{ form_widget(form.description, { 'attr': {'cols': '30', 'rows' : '5'} } ) }}
+                            </div>
+
+                            {{ form_row(form._token) }}
+
+                            <input type="submit" value="Сохранить" />
+                        </div><!-- .add_auto -->
+
+                    </fieldset>
+
+                </form>
+            {% else %}
+                <p class="notice">Для добавления заявки необходимо сначала <strong>авторизоваться</strong></p>
+                <p><a href="{{ path('reg') }}">Зарегестрироваться</a></p>
+            {% endif %}
+
+        </div>
+
+    {% endblock %}

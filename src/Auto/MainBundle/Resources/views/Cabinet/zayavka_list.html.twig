@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+
+    {% block leftbar %}
+        {% include 'AutoMainBundle:Cabinet:cabmenu.html.twig' %}
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="content">
+            <h2 class="page_title">Мои заявки на авто</h2>
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            {% if(zayavka) %}
+                <ul class="zayavki">
+                    {% for z in zayavka %}
+                        <li class="myitem">
+                            <h3 class="auto_title">{{ z.mark }} {{ z.model }} {% if z.new == 0 %} (б/у) {% endif %}</h3>
+                            <p class="info about">
+                                    {% if z.price is null %}
+                                      <span class="null">Цена не указана</span>
+                                    {% else %}
+                                        <span class="price">{{ z.price|number_format(0, '.', ' ') }} </span> грн
+                                    {% endif %}
+                                <br/>
+                                <a href="/Symfony/web/app_dev.php/zayavka/{{ z.id }}/{{ z.mark }}-{{ z.model }}">Посмотреть</a>
+                                <a href="{{ path('auto_main_homepage') }}zayavka-edit/{{ z.id }}">Изменить</a>
+                            </p>
+                        </li>
+                        <br class="clear"/>
+                    {% endfor %}
+                </ul>
+
+
+                {# {% block pagination %}
+                     {% include 'AutoMainBundle:Default:pagination.html.twig' %}
+                 {% endblock %}#}
+
+            {% else %}
+                <p>Заявок пока нет!</p>
+                <p><a href="{{ path('auto_new') }}">Добавить объявление</a></p>
+            {% endif %}
+
+        </div><!-- .content -->
+
+
+    {% endblock %}

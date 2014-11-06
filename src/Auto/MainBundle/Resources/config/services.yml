@@ -1,0 +1,7 @@
+parameters:
+#    auto_main.example.class: Auto\MainBundle\Example
+
+services:
+#    auto_main.example:
+#        class: %auto_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
