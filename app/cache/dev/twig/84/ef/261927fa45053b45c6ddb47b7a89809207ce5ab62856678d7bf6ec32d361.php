@@ -59,29 +59,29 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
         ";
         // line 30
         $this->displayBlock('header', $context, $blocks);
-        // line 41
+        // line 58
         echo "        <nav class=\"navigation\">
             <ul>
                 <li class=\"nav-main\"><a href=\"http://localhost/Symfony/web/app_dev.php/\">Главная</a></li>
                 <li><a href=\"http://localhost/Symfony/web/app_dev.php/cars\">Автомобили</a></li>
                 ";
-        // line 45
+        // line 62
         if ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "user_name"), "method")) {
-            // line 46
+            // line 63
             echo "                    <li class=\"nav-add-auto\"><a href=\"http://localhost/Symfony/web/app_dev.php/add-auto\">Добавить авто</a></li>
                     <li class=\"nav-add-auto\"><a href=\"http://localhost/Symfony/web/app_dev.php/add-detail\">Добавить деталь</a></li>
                 ";
         }
-        // line 49
+        // line 66
         echo "            </ul>
         </nav>
         ";
-        // line 51
+        // line 68
         $this->displayBlock('main', $context, $blocks);
-        // line 69
+        // line 86
         echo "        ";
         $this->displayBlock('footer', $context, $blocks);
-        // line 75
+        // line 92
         echo "    </div>
 
 
@@ -140,82 +140,99 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
     {
         // line 31
         echo "        <header class=\"header\">
-            <h1 class=\"logo\">AUTO</h1>
+            <div class=\"header_top\">
+                <div class=\"site_size\">
+                    <h1 class=\"logo\"><a href=\"#\">AutoName.com</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href=\"#\">Новости</a></li>
+                            <li><a href=\"#\">Автозапчасти</a></li>
+                            <li><a href=\"#\">Тест-драйв</a></li>
+                            <li><a href=\"#\">Новинки</a></li>
+                            <li><a href=\"#\">Предложения</a></li>
+                        </ul>
+                    </nav>
+                    <p id=\"auth\">
+                        <a href=\"#\">Войти</a>
+                        или
+                        <a href=\"#\">Зарегестрироваться</a>
+                    </p>
+                </div>
+            </div>
             <p>Авто базар</p>
 
             ";
-        // line 35
+        // line 53
         $this->displayBlock('auth', $context, $blocks);
-        // line 38
-        echo "
-        </header>
+        // line 56
+        echo "        </header>
         ";
     }
 
-    // line 35
+    // line 53
     public function block_auth($context, array $blocks = array())
     {
-        // line 36
+        // line 54
         echo "                ";
         echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("AutoMainBundle:Auth:index"), array());
-        // line 37
+        // line 55
         echo "            ";
     }
 
-    // line 51
+    // line 68
     public function block_main($context, array $blocks = array())
     {
-        // line 52
+        // line 69
         echo "            <div class=\"main\">
                 ";
-        // line 53
+        // line 70
         $this->displayBlock('leftbar', $context, $blocks);
-        // line 62
+        // line 79
         echo "
                 ";
-        // line 63
+        // line 80
         $this->displayBlock('content', $context, $blocks);
-        // line 66
+        // line 83
         echo "            </div>
 
         ";
     }
 
-    // line 53
+    // line 70
     public function block_leftbar($context, array $blocks = array())
     {
-        // line 54
+        // line 71
         echo "                    <aside class=\"leftbar\">
 
                         ";
-        // line 56
+        // line 73
         $this->displayBlock('filter', $context, $blocks);
-        // line 59
+        // line 76
         echo "
                     </aside>
                 ";
     }
 
-    // line 56
+    // line 73
     public function block_filter($context, array $blocks = array())
     {
-        // line 57
+        // line 74
         echo "
                         ";
     }
 
-    // line 63
+    // line 80
     public function block_content($context, array $blocks = array())
     {
-        // line 64
+        // line 81
         echo "
                 ";
     }
 
-    // line 69
+    // line 86
     public function block_footer($context, array $blocks = array())
     {
-        // line 70
+        // line 87
         echo "            <br class=\"clear\"/>
             <footer class=\"footer\">
                 <p>&copy; Харьков 2014</p>
@@ -235,6 +252,6 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
 
     public function getDebugInfo()
     {
-        return array (  219 => 70,  216 => 69,  211 => 64,  208 => 63,  203 => 57,  200 => 56,  194 => 59,  185 => 53,  179 => 66,  174 => 62,  169 => 52,  166 => 51,  159 => 36,  156 => 35,  150 => 38,  148 => 35,  142 => 31,  139 => 30,  133 => 17,  129 => 16,  125 => 15,  117 => 13,  111 => 10,  107 => 9,  102 => 8,  99 => 7,  93 => 6,  85 => 75,  82 => 69,  76 => 49,  69 => 45,  48 => 19,  46 => 13,  41 => 12,  39 => 7,  35 => 6,  29 => 2,  243 => 82,  240 => 81,  237 => 80,  233 => 78,  230 => 77,  227 => 76,  223 => 74,  220 => 73,  217 => 72,  213 => 70,  210 => 69,  207 => 68,  196 => 60,  192 => 56,  188 => 54,  181 => 54,  177 => 63,  172 => 53,  168 => 50,  162 => 37,  158 => 46,  153 => 44,  149 => 43,  138 => 35,  134 => 34,  124 => 27,  120 => 14,  110 => 19,  106 => 18,  100 => 15,  96 => 14,  86 => 9,  83 => 8,  80 => 51,  73 => 83,  71 => 46,  68 => 79,  66 => 76,  63 => 41,  61 => 30,  58 => 71,  56 => 68,  53 => 67,  51 => 7,  47 => 5,  44 => 4,  40 => 87,  37 => 4,  34 => 3,);
+        return array (  236 => 87,  233 => 86,  228 => 81,  225 => 80,  220 => 74,  217 => 73,  211 => 76,  209 => 73,  205 => 71,  202 => 70,  196 => 83,  194 => 80,  191 => 79,  189 => 70,  186 => 69,  183 => 68,  179 => 55,  176 => 54,  173 => 53,  168 => 56,  166 => 53,  142 => 31,  139 => 30,  133 => 17,  129 => 16,  125 => 15,  120 => 14,  117 => 13,  111 => 10,  107 => 9,  102 => 8,  99 => 7,  93 => 6,  85 => 92,  82 => 86,  80 => 68,  76 => 66,  71 => 63,  69 => 62,  63 => 58,  61 => 30,  48 => 19,  46 => 13,  41 => 12,  39 => 7,  35 => 6,  29 => 2,);
     }
 }

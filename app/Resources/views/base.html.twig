@@ -29,13 +29,30 @@
     <div class="wrapper">
         {% block header %}
         <header class="header">
-            <h1 class="logo">AUTO</h1>
+            <div class="header_top">
+                <div class="site_size">
+                    <h1 class="logo"><a href="#">AutoName.com</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Автозапчасти</a></li>
+                            <li><a href="#">Тест-драйв</a></li>
+                            <li><a href="#">Новинки</a></li>
+                            <li><a href="#">Предложения</a></li>
+                        </ul>
+                    </nav>
+                    <p id="auth">
+                        <a href="#">Войти</a>
+                        или
+                        <a href="#">Зарегестрироваться</a>
+                    </p>
+                </div>
+            </div>
             <p>Авто базар</p>
 
             {% block auth %}
                 {% render(controller('AutoMainBundle:Auth:index')) %}
             {% endblock%}
-
         </header>
         {% endblock %}
         <nav class="navigation">
