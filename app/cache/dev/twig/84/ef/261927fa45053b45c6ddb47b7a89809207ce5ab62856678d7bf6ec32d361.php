@@ -59,29 +59,29 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
         ";
         // line 30
         $this->displayBlock('header', $context, $blocks);
-        // line 58
+        // line 64
         echo "        <nav class=\"navigation\">
             <ul>
                 <li class=\"nav-main\"><a href=\"http://localhost/Symfony/web/app_dev.php/\">Главная</a></li>
                 <li><a href=\"http://localhost/Symfony/web/app_dev.php/cars\">Автомобили</a></li>
                 ";
-        // line 62
+        // line 68
         if ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "user_name"), "method")) {
-            // line 63
+            // line 69
             echo "                    <li class=\"nav-add-auto\"><a href=\"http://localhost/Symfony/web/app_dev.php/add-auto\">Добавить авто</a></li>
                     <li class=\"nav-add-auto\"><a href=\"http://localhost/Symfony/web/app_dev.php/add-detail\">Добавить деталь</a></li>
                 ";
         }
-        // line 66
+        // line 72
         echo "            </ul>
         </nav>
         ";
-        // line 68
+        // line 74
         $this->displayBlock('main', $context, $blocks);
-        // line 86
+        // line 92
         echo "        ";
         $this->displayBlock('footer', $context, $blocks);
-        // line 92
+        // line 98
         echo "    </div>
 
 
@@ -140,12 +140,11 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
     {
         // line 31
         echo "        <header class=\"header\">
-            <div class=\"header_top\">
-                <div class=\"site_size\">
+            <section class=\"header_top\">
                     <h1 class=\"logo\"><a href=\"#\">AutoName.com</a></h1>
                     <nav>
                         <ul>
-                            <li><a href=\"#\">Новости</a></li>
+                            <li><a href=\"#\" class=\"active\">Новости</a></li>
                             <li><a href=\"#\">Автозапчасти</a></li>
                             <li><a href=\"#\">Тест-драйв</a></li>
                             <li><a href=\"#\">Новинки</a></li>
@@ -157,82 +156,89 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
                         или
                         <a href=\"#\">Зарегестрироваться</a>
                     </p>
+            </section>
+
+            <section class=\"slider\">
+                <p class=\"logo_slide\">autorich.com.ua</p>
+                <div class=\"text\">
+                    <p>За последние <strong>24</strong> часа</p>
+                    <p>добавлено <strong>256</strong> объявлений</p>
                 </div>
-            </div>
-            <p>Авто базар</p>
+                <a href=\"#\">+ добавить объявление</a>
+            </section>
 
             ";
-        // line 53
+        // line 59
         $this->displayBlock('auth', $context, $blocks);
-        // line 56
+        // line 62
         echo "        </header>
         ";
     }
 
-    // line 53
+    // line 59
     public function block_auth($context, array $blocks = array())
     {
-        // line 54
+        // line 60
         echo "                ";
         echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("AutoMainBundle:Auth:index"), array());
-        // line 55
+        // line 61
         echo "            ";
     }
 
-    // line 68
+    // line 74
     public function block_main($context, array $blocks = array())
     {
-        // line 69
+        // line 75
         echo "            <div class=\"main\">
                 ";
-        // line 70
+        // line 76
         $this->displayBlock('leftbar', $context, $blocks);
-        // line 79
+        // line 85
         echo "
                 ";
-        // line 80
+        // line 86
         $this->displayBlock('content', $context, $blocks);
-        // line 83
+        // line 89
         echo "            </div>
 
         ";
     }
 
-    // line 70
+    // line 76
     public function block_leftbar($context, array $blocks = array())
     {
-        // line 71
+        // line 77
         echo "                    <aside class=\"leftbar\">
 
                         ";
-        // line 73
+        // line 79
         $this->displayBlock('filter', $context, $blocks);
-        // line 76
+        // line 82
         echo "
                     </aside>
                 ";
     }
 
-    // line 73
+    // line 79
     public function block_filter($context, array $blocks = array())
     {
-        // line 74
+        // line 80
         echo "
                         ";
     }
 
-    // line 80
+    // line 86
     public function block_content($context, array $blocks = array())
     {
-        // line 81
+        // line 87
         echo "
                 ";
     }
 
-    // line 86
+    // line 92
     public function block_footer($context, array $blocks = array())
     {
-        // line 87
+        // line 93
         echo "            <br class=\"clear\"/>
             <footer class=\"footer\">
                 <p>&copy; Харьков 2014</p>
@@ -252,6 +258,6 @@ class __TwigTemplate_84ef261927fa45053b45c6ddb47b7a89809207ce5ab62856678d7bf6ec3
 
     public function getDebugInfo()
     {
-        return array (  236 => 87,  233 => 86,  228 => 81,  225 => 80,  220 => 74,  217 => 73,  211 => 76,  209 => 73,  205 => 71,  202 => 70,  196 => 83,  194 => 80,  191 => 79,  189 => 70,  186 => 69,  183 => 68,  179 => 55,  176 => 54,  173 => 53,  168 => 56,  166 => 53,  142 => 31,  139 => 30,  133 => 17,  129 => 16,  125 => 15,  120 => 14,  117 => 13,  111 => 10,  107 => 9,  102 => 8,  99 => 7,  93 => 6,  85 => 92,  82 => 86,  80 => 68,  76 => 66,  71 => 63,  69 => 62,  63 => 58,  61 => 30,  48 => 19,  46 => 13,  41 => 12,  39 => 7,  35 => 6,  29 => 2,);
+        return array (  242 => 93,  239 => 92,  234 => 87,  231 => 86,  226 => 80,  223 => 79,  217 => 82,  215 => 79,  211 => 77,  208 => 76,  202 => 89,  200 => 86,  197 => 85,  195 => 76,  192 => 75,  189 => 74,  185 => 61,  182 => 60,  179 => 59,  174 => 62,  172 => 59,  142 => 31,  139 => 30,  133 => 17,  129 => 16,  125 => 15,  120 => 14,  117 => 13,  111 => 10,  107 => 9,  102 => 8,  99 => 7,  93 => 6,  85 => 98,  82 => 92,  80 => 74,  76 => 72,  71 => 69,  69 => 68,  63 => 64,  61 => 30,  48 => 19,  46 => 13,  41 => 12,  39 => 7,  35 => 6,  29 => 2,);
     }
 }
