@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /home/kirill/apache/local/Symfony/app/config/routing_dev.yml
+    resource: 'C:/Server/data/www/avto/app/config/routing_dev.yml'

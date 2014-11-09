@@ -30,44 +30,25 @@ class AuthController extends Controller
 
             $form->handleRequest($request);
 
-            if ($form->isValid()) {
+            $repository = $this->getDoctrine()
+                ->getRepository('AutoMainBundle:BaseUser');
 
-                $repository = $this->getDoctrine()
-                    ->getRepository('AutoMainBundle:BaseUser');
+            $auth = $repository->findOneBy(
+                array('email' => $user->getEmail(), 'password' => md5(sha1($user->getPassword())))
+            );
 
-                $auth = $repository->findOneBy(
-                    array('email' => $form->getEmail(), 'password' => md5(sha1($form->getPassword())))
+            $session = $this->get('session');
+            if($auth){
+                $session->set('user_id', $auth->getId());
+                $session->set('user_name', $auth->getName());
+                $session->set('user_name', $auth->getName());
+            }else{
+                $this->get('session')->getFlashBag()->add(
+                    'error',
+                    'Логин/Пароль введены не верно!'
                 );
-
-                if($user->getPassword() == $user->getPassword2()){
-
-                    $user->setPassword(md5(sha1($user->getPassword())));
-
-                    $new_user = new BaseUser();
-
-                    $new_user->setEmail($user->getEmail());
-                    $new_user->setPassword($user->getPassword());
-                    $new_user->setName($user->getName());
-                    $new_user->setPhone($user->getPhone());
-                    $new_user->setRegion($user->getRegion());
-                    $new_user->setCity($user->getCity());
-
-                    $em->persist($new_user);
-                    $em->flush();
-
-                    $this->get('session')->getFlashBag()->add(
-                        'success',
-                        'Вы успешно зарегестрировались'
-                    );
-                }
-
-                else{
-                    $this->get('session')->getFlashBag()->add(
-                        'error',
-                        'Пароли не совпадают'
-                    );
-                }
             }
+
         }
         return $this->redirect($request->headers->get('referer'));
     }
