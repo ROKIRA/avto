@@ -41,7 +41,7 @@ class AuthController extends Controller
             if($auth){
                 $session->set('user_id', $auth->getId());
                 $session->set('user_name', $auth->getName());
-                $session->set('user_name', $auth->getName());
+                $session->set('user_email', $auth->getEmail());
             }else{
                 $this->get('session')->getFlashBag()->add(
                     'error',

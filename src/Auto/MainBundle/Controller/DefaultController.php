@@ -11,8 +11,8 @@ class DefaultController extends Controller
     public function indexAction()
     {	
 
-        $form = $this->createForm(new FilterAutoType());
-        $form2 = $this->createForm(new AddZayavkaAutoType());
+        $form_filter = $this->createForm(new FilterAutoType());
+        $form_zayavka = $this->createForm(new AddZayavkaAutoType());
 
         // Слайдер автомобилей - новые авто
             $slider_new = $this->getDoctrine()
@@ -54,8 +54,8 @@ class DefaultController extends Controller
         $news = $query->getResult();
 
         return $this->render('AutoMainBundle:Default:index.html.twig',
-               array('form' => $form->createView(),
-                   'form2' => $form2->createView(),
+               array('form_filter' => $form_filter->createView(),
+                   'form_zayavka' => $form_zayavka->createView(),
                    'slider_new' => $slider_new,
                    'slidecount_new' => $slide_new_count,
                    'slider_bu' => $slider_bu,

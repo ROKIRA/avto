@@ -16,7 +16,7 @@
             </div>
             <div id="zayavka_form_content">
                 {% if app.session.get('user_name') %}
-                    <form action="{{ path('zayavka_new') }}" method="post" {{ form_enctype(form) }} class="add_form" id="form_zayavka">
+                    <form action="{{ path('zayavka_new') }}" method="post" {{ form_enctype(form_zayavka) }} class="add_form" id="form_zayavka">
                         <fieldset>
                             <legend>Заполните поля</legend>
                             {% for flashMessage in app.session.flashbag.get('notice') %}
@@ -27,92 +27,92 @@
 
                             <div class="add_auto">
                                 <div class="field">
-                                    {% if(form_errors(form2.region)) %}
-                                        <div class="error">{{ form_errors(form2.region) }}</div>
+                                    {% if(form_errors(form_zayavka.region)) %}
+                                        <div class="error">{{ form_errors(form_zayavka.region) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.region) }}
-                                    {{ form_widget(form2.region) }}
+                                    {{ form_label(form_zayavka.region) }}
+                                    {{ form_widget(form_zayavka.region) }}
                                 </div>
                                 <script type="text/javascript">
                                     $('#add_zayavka_auto_region').prepend('<option value="any" selected>Любой</option>');
                                 </script>
 
                                 <div class="field">
-                                    {% if(form_errors(form2.mark)) %}
-                                        <div class="error">{{ form_errors(form2.mark) }}</div>
+                                    {% if(form_errors(form_zayavka.mark)) %}
+                                        <div class="error">{{ form_errors(form_zayavka.mark) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.mark) }}
-                                    {{ form_widget(form2.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model') } } ) }}
+                                    {{ form_label(form_zayavka.mark) }}
+                                    {{ form_widget(form_zayavka.mark, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_model') } } ) }}
                                 </div>
                                 <script type="text/javascript">
                                     $('#add_zayavka_auto_mark').prepend('<option value="0" selected>Выберите марку</option>');
                                 </script>
 
                                 <div class="field">
-                                    {% if(form_errors(form2.model)) %}
-                                        <div class="error">{{ form_errors(form2.model) }}</div>
+                                    {% if(form_errors(form_zayavka.model)) %}
+                                        <div class="error">{{ form_errors(form_zayavka.model) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.model) }}
-                                    {{ form_widget(form2.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year') } } ) }}
+                                    {{ form_label(form_zayavka.model) }}
+                                    {{ form_widget(form_zayavka.model, { 'attr': {'data-url': path('AutoMainBundle_ajax_update_mydata_year') } } ) }}
                                 </div>
                                 <script type="text/javascript">
                                     $('#add_zayavka_auto_model').empty().prepend('<option value="0" selected>Выберите модель</option>');
                                 </script>
 
                                 <div class="field">
-                                    {% if(form_errors(form2.year)) %}
+                                    {% if(form_errors(form_zayavka.year)) %}
                                         <div class="error">{{ form_errors(form.year) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.year) }}
-                                    {{ form_widget(form2.year, { 'attr': {'placeholder': 'Год выпуска автомобиля'} } ) }}
+                                    {{ form_label(form_zayavka.year) }}
+                                    {{ form_widget(form_zayavka.year, { 'attr': {'placeholder': 'Год выпуска автомобиля'} } ) }}
                                 </div>
                                 <script type="text/javascript">
                                     $('#add_zayavka_auto_year').empty().prepend('<option value="0" selected>Укажите год выпуска</option>');
                                 </script>
 
                                 <div class="field">
-                                    {% if(form_errors(form2.body)) %}
+                                    {% if(form_errors(form_zayavka.body)) %}
                                         <div class="error">{{ form_errors(form.body) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.body) }}
-                                    {{ form_widget(form2.body, { 'attr': {'placeholder': 'Тип кузова: '} } ) }}
+                                    {{ form_label(form_zayavka.body) }}
+                                    {{ form_widget(form_zayavka.body, { 'attr': {'placeholder': 'Тип кузова: '} } ) }}
                                 </div>
 
                                 <div class="field">
-                                    {% if(form_errors(form2.run)) %}
+                                    {% if(form_errors(form_zayavka.run)) %}
                                         <div class="error">{{ form_errors(form.run) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.run) }}
-                                    {{ form_widget(form2.run, { 'attr': {'placeholder': 'Пробег автомобиля'} } ) }}
+                                    {{ form_label(form_zayavka.run) }}
+                                    {{ form_widget(form_zayavka.run, { 'attr': {'placeholder': 'Пробег автомобиля'} } ) }}
                                 </div>
                                 <div class="field color">
-                                    {% if(form_errors(form2.color)) %}
+                                    {% if(form_errors(form_zayavka.color)) %}
                                         <div class="error">{{ form_errors(form.color) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.color) }}
-                                    {{ form_widget(form2.color, { 'attr': { 'placeholder': 'Цвет автомобиля', 'class': 'add_zayavka_color_field'} } ) }}
+                                    {{ form_label(form_zayavka.color) }}
+                                    {{ form_widget(form_zayavka.color, { 'attr': { 'placeholder': 'Цвет автомобиля', 'class': 'add_zayavka_color_field'} } ) }}
                                     <span class="color_box"></span>
                                 </div>
                                 <div class="field">
-                                    {{ form_label(form2.new) }}
-                                    {{ form_widget(form2.new) }}
+                                    {{ form_label(form_zayavka.new) }}
+                                    {{ form_widget(form_zayavka.new) }}
                                 </div>
                                 <div class="field">
-                                    {% if(form_errors(form2.price)) %}
-                                        <div class="error">{{ form_errors(form2.price) }}</div>
+                                    {% if(form_errors(form_zayavka.price)) %}
+                                        <div class="error">{{ form_errors(form_zayavka.price) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.price) }}
-                                    {{ form_widget(form2.price, { 'attr': {'placeholder': 'Цена автомобиля'} } ) }}
+                                    {{ form_label(form_zayavka.price) }}
+                                    {{ form_widget(form_zayavka.price, { 'attr': {'placeholder': 'Цена автомобиля'} } ) }}
                                 </div>
                                 <div class="field description_field">
-                                    {% if(form_errors(form2.description)) %}
-                                        <div class="error">{{ form_errors(form2.description) }}</div>
+                                    {% if(form_errors(form_zayavka.description)) %}
+                                        <div class="error">{{ form_errors(form_zayavka.description) }}</div>
                                     {% endif %}
-                                    {{ form_label(form2.description) }}
-                                    {{ form_widget(form2.description, { 'attr': {'cols': '30', 'rows' : '5'} } ) }}
+                                    {{ form_label(form_zayavka.description) }}
+                                    {{ form_widget(form_zayavka.description, { 'attr': {'cols': '30', 'rows' : '5'} } ) }}
                                 </div>
 
-                                {{ form_row(form2._token) }}
+                                {{ form_row(form_zayavka._token) }}
 
                                 <input type="submit" value="Добавить" id="send_zayavka"/>
                             </div><!-- .add_auto -->

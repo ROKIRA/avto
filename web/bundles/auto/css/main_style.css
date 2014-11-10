@@ -126,7 +126,7 @@ header .header_top #auth a:first-child{
     padding-left: 40px;
 }
 header .header_top #auth a:first-child:hover{
-    background-position: 0 -36px;
+    background-position: 0 -37px;
 }
 header .slider{
     height: 330px;
@@ -760,6 +760,9 @@ header .slider a:hover{
 
 
 /* AUTO SLIDER */
+.slider-wrapper * {
+    box-sizing: content-box;
+}
 .slider-wrapper{
     padding: 0 9px 9px;
     width: 460px;
@@ -770,6 +773,8 @@ header .slider a:hover{
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    box-sizing: content-box;
+
 }
 .slider-wrapper::-moz-selection { background: transparent; color: #fff; text-shadow: none; }
 .slider-wrapper::selection { background: transparent; color: #fff; text-shadow: none; }
@@ -837,7 +842,7 @@ header .slider a:hover{
             position: absolute;
             width: 90%;
             height: 100%;
-            background: url("/Symfony/web/bundles/auto/images/loading_big.gif") 50% 50% no-repeat #FFF;
+            background: url("/bundles/auto/images/loading_big.gif") 50% 50% no-repeat #FFF;
             z-index: 1;
             display: none;
         }
@@ -852,13 +857,13 @@ header .slider a:hover{
             cursor: pointer;
         }
             .arrow_left{
-                background: url("/Symfony/web/bundles/auto/images/left_arrow.png");
+                background: url("/bundles/auto/images/left_arrow.png");
                 background-size: contain;
                 left: 0;
                 visibility: hidden;
             }
             .arrow_right{
-                background: url("/Symfony/web/bundles/auto/images/right_arrow.png");
+                background: url("/bundles/auto/images/right_arrow.png");
                 background-size: contain;
                 right: 0;
             }
@@ -885,7 +890,7 @@ header .slider a:hover{
                         vertical-align: bottom;
                     }
             .mini_slider{
-                width: 328px;
+                width: 320px;
                 position: relative;
                 padding: 5px 50px;
                 background: #FFF;
@@ -902,12 +907,12 @@ header .slider a:hover{
                     cursor: pointer;
                 }
                 .previous_car{
-                    background: url("/Symfony/web/bundles/auto/images/previous.png") no-repeat;
+                    background: url("/bundles/auto/images/previous.png") no-repeat;
                     background-size: contain;
                     left: 5px;
                 }
                 .next_car{
-                    background: url("/Symfony/web/bundles/auto/images/next.png") no-repeat;
+                    background: url("/bundles/auto/images/next.png") no-repeat;
                     background-size: contain;
                     right: 5px;
                 }

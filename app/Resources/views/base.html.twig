@@ -63,11 +63,11 @@
         {% endblock %}
         <nav class="navigation">
             <ul>
-                <li class="nav-main"><a href="http://localhost/Symfony/web/app_dev.php/">Главная</a></li>
-                <li><a href="http://localhost/Symfony/web/app_dev.php/cars">Автомобили</a></li>
+                <li class="nav-main"><a href="/app_dev.php/">Главная</a></li>
+                <li><a href="/cars">Автомобили</a></li>
                 {% if app.session.get('user_name') %}
-                    <li class="nav-add-auto"><a href="http://localhost/Symfony/web/app_dev.php/add-auto">Добавить авто</a></li>
-                    <li class="nav-add-auto"><a href="http://localhost/Symfony/web/app_dev.php/add-detail">Добавить деталь</a></li>
+                    <li class="nav-add-auto"><a href="/add-auto">Добавить авто</a></li>
+                    <li class="nav-add-auto"><a href="/add-detail">Добавить деталь</a></li>
                 {% endif %}
             </ul>
         </nav>

@@ -1,4 +1,4 @@
-{% if form is defined %} {{ dump(form) }}{% endif %}
+
 <div class="auth_form auth">
     {% if app.session.get('user_name') %}
         <p>Добро пожаловать, <span>{{ app.session.get('user_name') }}</span></p>

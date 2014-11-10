@@ -1,25 +1,4 @@
 function number_format(number, decimals, dec_point, thousands_sep) {
-    //  discuss at: http://phpjs.org/functions/number_format/
-    // original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
-    // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-    // improved by: davook
-    // improved by: Brett Zamir (http://brett-zamir.me)
-    // improved by: Brett Zamir (http://brett-zamir.me)
-    // improved by: Theriault
-    // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-    // bugfixed by: Michael White (http://getsprink.com)
-    // bugfixed by: Benjamin Lupton
-    // bugfixed by: Allan Jensen (http://www.winternet.no)
-    // bugfixed by: Howard Yeend
-    // bugfixed by: Diogo Resende
-    // bugfixed by: Rival
-    // bugfixed by: Brett Zamir (http://brett-zamir.me)
-    //  revised by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
-    //  revised by: Luke Smith (http://lucassmith.name)
-    //    input by: Kheang Hok Chin (http://www.distantia.ca/)
-    //    input by: Jay Klehr
-    //    input by: Amir Habibi (http://www.residence-mixte.com/)
-    //    input by: Amirouche
     //   example 1: number_format(1234.56);
     //   returns 1: '1,235'
     //   example 2: number_format(1234.56, 2, ',', ' ');
@@ -636,7 +615,7 @@ $(document).ready(function(){
                         html += '<div class="comment" data-id="' + response.comment_id + '" data-level="' + datalevel + '">';
                     }
                     html += '<div class="avatar">';
-                    html += '<img src="/Symfony/web/bundles/auto/images/avatar-50x50.gif" alt="avatar" />';
+                    html += '<img src="/bundles/auto/images/avatar-50x50.gif" alt="avatar" />';
                     html += '</div>';
                     html += '<div class="comment_content">';
                     html += '<div class="comment_header">';

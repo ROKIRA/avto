@@ -10,7 +10,7 @@
             <div class="slider-body new_slider_body">
                 <div class="slide active_slide new_slide new_active_slide" data-page="1">
                     <div class="large_car">
-                        <a href="/Symfony/web/app_dev.php/auto/{{ slider_new[0].id }}/{{ slider_new[0].mark }}-{{ slider_new[0].model }}"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_new[0].img }}" alt="{{ slider_new[0].model }}" /></a>
+                        <a href="/auto/{{ slider_new[0].id }}/{{ slider_new[0].mark }}-{{ slider_new[0].model }}"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_new[0].img }}" alt="{{ slider_new[0].model }}" /></a>
                         <p class="carname">{#<a href="/Symfony/web/app_dev.php/auto/{{ slider_new[0].id }}/{{ slider_new[0].mark }}-{{ slider_new[0].model }}">#}<span class="auto_field_name">Марка:</span> <span class="car_mark">{{ slider_new[0].mark }}</span>{#</a>#}</p>
                         <p class="carname"><span class="auto_field_name">Модель:</span> <span class="car_model">{{ slider_new[0].model }}</span></p>
                         <p class="caryear"><span class="auto_field_name">Год выпуска:</span> <span class="car_year">{{ slider_new[0].year }}</span></p>
@@ -24,7 +24,7 @@
                                 {% for i in 1..slidecount_new-1 %}
                                     <div class="small_car" id="car-{{ slider_new[i].id }}">
                                         <a href="#"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_new[i].img }}" alt="{{ slider_new[i].model }}"/></a>
-                                        <p class="info_about_car" data-link="/Symfony/web/app_dev.php/auto/{{ slider_new[i].id }}/{{ slider_new[i].mark }}-{{ slider_new[i].model }}" data-mark="{{ slider_new[i].mark }}" data-model="{{ slider_new[i].model }}" data-year="{{ slider_new[i].year }}" data-run="{{ slider_new[i].run|number_format(0, '.', ' ') }}" data-price="{{ slider_new[i].price|number_format(0, '.', ' ') }}">{{ slider_new[i].year }} г.в., {{ slider_new[i].run|number_format(0, '.', ' ') }} км, цена: {{ slider_new[i].price|number_format(0, '.', ' ') }} грн</p>
+                                        <p class="info_about_car" data-link="/auto/{{ slider_new[i].id }}/{{ slider_new[i].mark }}-{{ slider_new[i].model }}" data-mark="{{ slider_new[i].mark }}" data-model="{{ slider_new[i].model }}" data-year="{{ slider_new[i].year }}" data-run="{{ slider_new[i].run|number_format(0, '.', ' ') }}" data-price="{{ slider_new[i].price|number_format(0, '.', ' ') }}">{{ slider_new[i].year }} г.в., {{ slider_new[i].run|number_format(0, '.', ' ') }} км, цена: {{ slider_new[i].price|number_format(0, '.', ' ') }} грн</p>
                                     </div>
                                 {% endfor %}
                             </div>
@@ -37,7 +37,7 @@
             <div class="items_headers">
                 <div class="headers_slider">
                     {% for i in 1..slidecount_new-1 %}
-                        <h3 class="carname"><a href="/Symfony/web/app_dev.php/auto/{{ slider_new[i].id }}/{{ slider_new[i].mark }}-{{ slider_new[i].model }}"><span class="car_mark">{{ slider_new[i].mark }}</span> <span class="car_model">{{ slider_new[i].model }}</span></a></h3>
+                        <h3 class="carname"><a href="/auto/{{ slider_new[i].id }}/{{ slider_new[i].mark }}-{{ slider_new[i].model }}"><span class="car_mark">{{ slider_new[i].mark }}</span> <span class="car_model">{{ slider_new[i].model }}</span></a></h3>
                     {% endfor %}
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="slider-body bu_slider_body">
                 <div class="slide active_slide bu_slide bu_active_slide" data-page="1">
                         <div class="large_car">
-                            <a href="/Symfony/web/app_dev.php/auto/{{ slider_bu[0].id }}/{{ slider_bu[0].mark }}-{{ slider_bu[0].model }}"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_bu[0].img }}" alt="{{ slider_bu[0].model }}" /></a>
+                            <a href="/auto/{{ slider_bu[0].id }}/{{ slider_bu[0].mark }}-{{ slider_bu[0].model }}"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_bu[0].img }}" alt="{{ slider_bu[0].model }}" /></a>
                             <p class="carname">{#<a href="/Symfony/web/app_dev.php/auto/{{ slider_bu[0].id }}/{{ slider_bu[0].mark }}-{{ slider_bu[0].model }}">#}<span class="auto_field_name">Марка:</span> <span class="car_mark">{{ slider_bu[0].mark }}</span>{#</a>#}</p>
                             <p class="carname"><span class="auto_field_name">Модель:</span> <span class="car_model">{{ slider_bu[0].model }}</span></p>
                             <p class="caryear"><span class="auto_field_name">Год выпуска:</span> <span class="car_year">{{ slider_bu[0].year }}</span></p>
@@ -64,7 +64,7 @@
                                     {% for i in 1..slidecount_bu-1 %}
                                         <div class="small_car" id="car-{{ slider_bu[i].id }}">
                                             <a href="#"><img src="{{ asset('bundles/auto/userfiles/') }}{{ slider_bu[i].img }}" alt="{{ slider_bu[i].model }}"/></a>
-                                            <p class="info_about_car" data-link="/Symfony/web/app_dev.php/auto/{{ slider_bu[i].id }}/{{ slider_bu[i].mark }}-{{ slider_bu[i].model }}" data-mark="{{ slider_bu[i].mark }}" data-model="{{ slider_bu[i].model }}" data-year="{{ slider_bu[i].year }}" data-run="{{ slider_bu[i].run|number_format(0, '.', ' ') }}" data-price="{{ slider_bu[i].price|number_format(0, '.', ' ') }}">{{ slider_bu[i].year }} г.в., {{ slider_bu[i].run|number_format(0, '.', ' ') }} км, цена: {{ slider_bu[i].price|number_format(0, '.', ' ') }} грн</p>
+                                            <p class="info_about_car" data-link="/auto/{{ slider_bu[i].id }}/{{ slider_bu[i].mark }}-{{ slider_bu[i].model }}" data-mark="{{ slider_bu[i].mark }}" data-model="{{ slider_bu[i].model }}" data-year="{{ slider_bu[i].year }}" data-run="{{ slider_bu[i].run|number_format(0, '.', ' ') }}" data-price="{{ slider_bu[i].price|number_format(0, '.', ' ') }}">{{ slider_bu[i].year }} г.в., {{ slider_bu[i].run|number_format(0, '.', ' ') }} км, цена: {{ slider_bu[i].price|number_format(0, '.', ' ') }} грн</p>
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -77,7 +77,7 @@
             <div class="items_headers">
                 <div class="headers_slider">
                     {% for i in 1..slidecount_bu-1 %}
-                        <h3 class="carname"><a href="/Symfony/web/app_dev.php/auto/{{ slider_bu[i].id }}/{{ slider_bu[i].mark }}-{{ slider_bu[i].model }}"><span class="car_mark">{{ slider_bu[i].mark }}</span> <span class="car_model">{{ slider_bu[i].model }}</span></a></h3>
+                        <h3 class="carname"><a href="/auto/{{ slider_bu[i].id }}/{{ slider_bu[i].mark }}-{{ slider_bu[i].model }}"><span class="car_mark">{{ slider_bu[i].mark }}</span> <span class="car_model">{{ slider_bu[i].model }}</span></a></h3>
                     {% endfor %}
                 </div>
             </div>
